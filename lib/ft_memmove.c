@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/30 16:57:21 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/07 11:48:07 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t		i;
+	char		*source;
+	char		*dsti;
+	char		*tp;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	source = (char *)src;
+	dsti = dst;
+	i = 0;
+	tp = (char *)malloc(sizeof(char) * len);
+	while (i < len)
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		tp[i] = source[i];
+		i++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	i = 0;
+	while (i < len)
+	{
+		dsti[i] = tp[i];
+		i++;
+	}
+	return (dsti);
 }
-

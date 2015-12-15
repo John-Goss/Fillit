@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/02 14:35:50 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/10 13:11:44 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t	c1;
+	size_t	c2;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	c1 = ft_strlen(s1);
+	c2 = ft_strlen(s2);
+	i = 0;
+	j = 0;
+	str = (char *)malloc(sizeof(str) * (c1 + c2 + 1));
+	while (s1[i])
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		str[i] = ((char *)s1)[i];
+		i++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	while (s2[j])
+	{
+		str[i] = ((char *)s2)[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-

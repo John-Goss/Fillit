@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/24 15:53:25 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/11 16:20:14 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strdup(const char *s1)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t	i;
+	char	*s2;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	i = 0;
+	s2 = (char *)malloc(sizeof(char) * ft_strlen(s1 + 1));
+	if (s2 == NULL)
+		return (NULL);
+	while (s1[i])
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		s2[i] = s1[i];
+		i++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	return (s2);
 }
-

@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checknext.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 17:23:01 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 11:36:15 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/26 14:00:07 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/04 13:38:18 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_checknext(char *buf)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int i;
-	int cpt;
+	size_t i1;
+	size_t i2;
+	size_t t;
 
-	cpt = 0;
-	i = 0;
-	while (buf[i])
+	i1 = 0;
+	i2 = 0;
+	t = ft_strlen((char *)s2);
+	if (t > n)
+		return (NULL);
+	if (s2[i2] == '\0')
+		return ((char *)s1);
+	while (s1[i1])
 	{
-		if (buf[i] == '#')
+		while (s1[i1] == s2[i2] && n > i1)
 		{
-			if (i > 0 && buf[i - 1] == '#')
-				cpt++;
-			if (i > 4 && buf[i - 5] == '#')
-				cpt++;
-			if (i < 19 buf[i + 1] == '#')
-				cpt++;
-			if (i < 15 buf[i + 5] == '#')
-				cpt++;
+			if (s2[i2 + 1] == '\0' || i2 + 1 == n)
+				return ((char *)&s1[i1 - i2]);
+			i1++;
+			i2++;
 		}
+		i1 = i1 - i2 + 1;
+		i2 = 0;
 	}
-	if (cpt != 6 || cpt != 8)
-		return (0);
-	return (1);
+	return (NULL);
 }

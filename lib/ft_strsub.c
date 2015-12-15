@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/02 14:07:07 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/10 13:48:47 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	char	*trc;
+	size_t	i;
+	size_t	j;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	j = 0;
+	i = 0;
+	trc = (char *)malloc(sizeof(trc) * len + 1);
+	if (trc == NULL)
+		return (NULL);
+	while (i != start)
+		i++;
+	while (j < len)
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		trc[j] = ((char *)s)[i];
+		i++;
+		j++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	trc[j] = '\0';
+	return (trc);
 }
-

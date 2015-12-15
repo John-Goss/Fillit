@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   strncat.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/01 13:44:57 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/02 11:51:45 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t i;
+	size_t j;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	i = 0;
+	j = ft_strlen(s1);
+	while (i < n && s2[i])
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		s1[j] = s2[i];
+		i++;
+		j++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	s1[j] = '\0';
+	return (s1);
 }
-

@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/01 16:32:01 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/04 15:10:51 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	int j;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
-	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
-	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	j = ft_strlen((char *)s);
+	while (j >= 0 && s[j] != c)
+		j--;
+	if (s[j] == c)
+		return ((char *)&s[j]);
+	if (c == 0)
+		return ((char *)&s[j]);
+	return (NULL);
 }
-

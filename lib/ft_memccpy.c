@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/30 16:00:36 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/11 13:08:07 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t			i;
+	unsigned char	*ptr_d;
+	unsigned char	*ptr_s;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	i = 0;
+	ptr_d = dst;
+	ptr_s = (unsigned char *)src;
+	while (i < n)
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		ptr_d[i] = ptr_s[i];
+		if (ptr_s[i] == (unsigned char)c)
+			return (&ptr_d[i + 1]);
+		i++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	return (NULL);
 }
-

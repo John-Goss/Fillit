@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_stric.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/10 13:57:41 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/10 15:36:26 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+int		ft_stric(char *str, char c, size_t n)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t i;
+	size_t cmpt;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	cmpt = 0;
+	i = 0;
+	while (str[i])
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		if (str[i] == c)
+		{
+			cmpt++;
+			if (cmpt == n)
+				return (i + 1);
+		}
+		i++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	return (-1);
 }
-

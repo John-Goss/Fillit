@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/25 12:09:07 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/14 14:32:52 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+int		ft_atoi(const char *str)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	int i;
+	int res;
+	int isneg;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	res = 0;
+	i = 0;
+	isneg = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
+		if (str[i] == '-')
+			isneg = 1;
+		i++;
+		if (str[i] < '0' || str[i] > '9')
 			return (0);
-		cpt++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	while (str[i] >= '0' && str[i] <= '9')
+		res = res * 10 + str[i++] - '0';
+	if (isneg == 1)
+		res = -res;
+	return (res);
 }
-

@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:44:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/14 17:59:37 by vgosset          ###   ########.fr       */
+/*   Updated: 2015/12/15 14:18:48 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		main(int argc, char **argv)
 {
 	int fd;
 	int cpt;
+	char *buf;
+	t_tetri **tab;
 
 	if (argc != 2)
 		ft_putendl("error");
@@ -25,4 +27,8 @@ int		main(int argc, char **argv)
 	cpt = ft_read(fd);
 	if (cpt == 0)
 		ft_putendl("error");
+	if (close(fd) = -1)
+		ft_putendl("error");
+	fd = open(argv[1], O_RONLY);
+	tab = ft_readtoplace(fd, cpt);
 }

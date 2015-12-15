@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 14:52:50 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/14 16:27:22 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/25 16:43:48 by vgosset           #+#    #+#             */
+/*   Updated: 2015/11/27 12:39:28 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_error()
+void	ft_putstr_fd(char const *s, int fd)
 {
-	ft_putstr("error");
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

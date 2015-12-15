@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/03 17:26:23 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/07 11:46:50 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t i;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
-	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
-	}
-	if(ret2 != 0)
+	i = 0;
+	while (s1[i] && s2[i] && ((unsigned char)s1[i]) == ((unsigned char)s2[i])
+			&& i < n)
+		i++;
+	if (i == n)
 		return (0);
-	return (cpt);
+	return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
 }
-

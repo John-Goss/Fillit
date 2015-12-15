@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_readtoplace.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/15 13:35:44 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/15 14:06:32 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_read(int fd)
+char	**ft_readtoplace(int fd, t_tetri **tab)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	int ret;
+	char buf[21];
+	char buf2[2];
+	int i;
 
-	cpt = 0;
+	i = 1;
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
 		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		ft_placebuf(buf, i, tab);
+		i++;
+		read(fd, buf2, 1);
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	return (tab);
 }
-

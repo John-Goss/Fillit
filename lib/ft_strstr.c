@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/24 16:03:10 by vgosset           #+#    #+#             */
+/*   Updated: 2015/11/27 12:33:55 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	int i1;
+	int i2;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	i1 = 0;
+	i2 = 0;
+	if (s2[i2] == '\0')
+		return ((char *)s1);
+	while (s1[i1])
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		while (s1[i1] == s2[i2])
+		{
+			if (s2[i2 + 1] == '\0')
+				return ((char *)&s1[i1 - i2]);
+			i1++;
+			i2++;
+		}
+		i1 = i1 - i2 + 1;
+		i2 = 0;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	return (NULL);
 }
-

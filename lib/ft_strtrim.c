@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/12/02 15:06:33 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/11 11:36:54 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strtrim(char const *s)
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	size_t		i;
+	char		*str;
+	size_t		j;
+	size_t		len;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
-	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
-	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	i = 0;
+	j = ft_strlen(s) - 1;
+	while (i <= j && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+		i++;
+	while (j >= i && (s[j] == ' ' || s[j] == '\n' || s[j] == '\t'))
+		j--;
+	len = j - i + 1;
+	str = ft_strsub(s, i, len);
+	return (str);
 }
-

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:41:32 by vgosset          ###   ########.fr       */
+/*   Created: 2015/11/30 14:39:52 by vgosset           #+#    #+#             */
+/*   Updated: 2015/12/11 11:48:12 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		ft_read(int fd)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		ret;
-	char	buf[21];
-	char	buf2[2];
-	int		cpt;
-	int		ret2;
+	int		i;
+	int		m;
+	char	*str;
 
-	cpt = 0;
-	while ((ret = read(fd, buf, 20)) > 0)
+	m = ft_strlen(s);
+	i = 0;
+	str = (char *)malloc(sizeof(char) * m + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		buf[20] = '\0';
-		if (!ft_checkbuf(buf)
-				return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
-			return (0);
-		cpt++;
+		str[i] = (*f)(s[i]);
+		i++;
 	}
-	if(ret2 != 0)
-		return (0);
-	return (cpt);
+	str[i] = '\0';
+	return (str);
 }
-
