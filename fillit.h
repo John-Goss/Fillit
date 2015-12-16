@@ -18,13 +18,13 @@
 typedef struct	s_tetri
 {
 	char	form[4][5];
-	char	symb;
+	char	letter;
 	size_t	height;
 	size_t	large;
 }				t_tetri;
 
-size_t		ft_countheight(t_tetri **tab, size_t j);
-size_t		ft_countlarge(t_tetri **tab, size_t j);
+void		ft_countheight(t_tetri *tab);
+void		ft_countlarge(t_tetri *tab);
 t_tetri		ft_placebuf(char *buf, t_tetri form);
 int			ft_checkbuf(char *buf);
 char		ft_read(char *file);
