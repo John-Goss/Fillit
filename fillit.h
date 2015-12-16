@@ -1,5 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
+
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -24,8 +23,9 @@ typedef struct	s_tetri
 	size_t	large;
 }				t_tetri;
 
+size_t		ft_countheight(t_tetri **tab, size_t j);
+size_t		ft_countlarge(t_tetri **tab, size_t j);
 t_tetri		ft_placebuf(char *buf, t_tetri form);
-void		ft_error(char *str);
 int			ft_checkbuf(char *buf);
 char		ft_read(char *file);
 int			ft_checknext(char *buf);

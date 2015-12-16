@@ -6,12 +6,12 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 13:45:45 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 14:06:21 by vgosset          ###   ########.fr       */
+/*   Updated: 2015/12/16 12:15:45 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**ft_placebuf(char *buf, int i, t_tetri *:w*tab)
+char	**ft_placebuf(char *buf, int i, t_tetri **tab)
 {
 	
