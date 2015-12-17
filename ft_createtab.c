@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-char	**ft_createtab(int cpt)
+char	**ft_placebuf(char *buf, int i, t_tetri **tab)
 {
-	char	**tab;
+}
 
-	tab = ((char **)malloc(sizeof(tab) * cpt + 1);
+t_tetri	**ft_createtab(size_t cpt)
+{
+	t_tetri	**tab;
+
+	tab = ((t_tetri **)malloc(sizeof(t_tetri) * cpt + 1);
 	if (tab == NULL)
 	{
 		ft_putendl("error");
