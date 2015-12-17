@@ -11,11 +11,25 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-char	**ft_placebuf(char *buf, int i, t_tetri **tab)
+
+t_tetri	**ft_placebuf(char *buf, int i)
 {
+	t_tetri	**tab;
+	int i;
+
+	i = 0;
+	tab = ft_createtab(tab);
+	if (tab == NULL)
+		return (NULL);
+		while (i < 4)
+		{
+			*tab->form[i] = ft_strdup((char *)tab->form[i], buf, 4);
+			i++;
+		}
+	return (tab);
 }
 
-t_tetri	**ft_createtab(size_t cpt)
+t_tetri	**ft_createtab(t_tetri **tab)
 {
 	t_tetri	**tab;
 

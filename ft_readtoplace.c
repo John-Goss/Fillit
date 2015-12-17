@@ -12,18 +12,18 @@
 
 #include "fillit.h"
 
-char	**ft_readtoplace(int fd, size_t cpt)
+t_tetri	**ft_readtoplace(int fd, size_t cpt)
 {
 	int ret;
 	char buf[21];
 	char buf2[2];
 	int i;
 
-	i = 1;
+	i = 0;
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
 		buf[20] = '\0';
-		ft_placebuf(buf, i, tab);
+		ft_placebuf(buf, i);
 		i++;
 		read(fd, buf2, 1);
 	}
