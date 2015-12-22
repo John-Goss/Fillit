@@ -35,12 +35,14 @@ t_tetri	**ft_readtoplace(int fd, size_t cpt)
 	t_tetri	**tab;
 
 	i = 0;
+	tab = ft_createtab(tab, cpt);
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
 		buf[19] = '\0';
 		buf = ft_replacechar(buf, '\n', '\0');
-		tab = ft_placebuf(buf, i);
+		*tab = ft_placebuf(*tab, buf, i);
 		i++;
+		tab++;
 		read(fd, buf2, 1);
 	}
 	return (tab);

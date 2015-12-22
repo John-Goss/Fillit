@@ -25,9 +25,12 @@ typedef struct	s_tetri
 
 void		ft_countheight(t_tetri *tab);
 void		ft_countlarge(t_tetri *tab);
-t_tetri		ft_placebuf(char *buf, t_tetri form);
+t_tetri		**ft_placebuf(t_tetri **tab, char *buf, int i);
 int			ft_checkbuf(char *buf);
 char		ft_read(char *file);
 int			ft_checknext(char *buf);
+t_tetri		**ft_createtab(t_tetri **tab, size_t cpt);
+char		*ft_replacechar(char *buf, char c, char d);
+t_tetri		**ft_readtoplace(int fd, size_t cpt);
 
 #endif

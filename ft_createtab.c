@@ -12,32 +12,23 @@
 
 #include "fillit.h"
 
-t_tetri	**ft_placebuf(char *buf, int i)
+t_tetri	**ft_placebuf(t_tetri *tab, char *buf, int i)
 {
-	t_tetri	**tab;
-	int		i;
 	int		j;
 
-	i = 0;
 	j = 0;
-	tab = ft_createtab(tab);
 	if (tab == NULL)
 		return (NULL);
-		while (i < 4)
-		{
-			*tab->form[i] = ft_strncpy((char *)tab->form[i], buf + j, 5);
-			i++;
-			j = j + 5;
-		}
+	while (j <= 20)
+	{
+		*tab->form[i] = ft_strncpy((char *)tab->form[i], buf + j, 5);
+		j = j + 5;
+	}
+	*tab->letter = 'A' + i;
 	return (tab);
 }
 
-t_tetri	**ft_createtab(t_tetri **tab)
+t_tetri	**ft_createtab(t_tetri **tab, size_t cpt)
 {
-	t_tetri	**tab;
-
-	tab = ((t_tetri **)malloc(sizeof(t_tetri) * cpt + 1);
-	if (tab == NULL)
-		return (NULL);
-	return (tab);
+	return (tab = ((t_tetri **)malloc(sizeof(t_tetri) * cpt + 1)));
 }

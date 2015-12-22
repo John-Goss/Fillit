@@ -21,10 +21,16 @@ int		main(int argc, char **argv)
 	t_tetri	**tab;
 
 	if (argc != 2)
+	{
 		ft_putendl("error");
+		return (0);
+	}
 	fd = open(argv[1], O_RONLY);
 	if (fd == -1)
+	{
 		ft_putendl("error");
+		rerturn (0);
+	}
 	cpt = ft_read(fd);
 	if (cpt  == 0)
 		ft_putendl("error");
