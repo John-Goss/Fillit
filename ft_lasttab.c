@@ -18,12 +18,12 @@ char	**ft_lasttab(cpt)
 	int		i;
 
 	i = 0;
-	res = (char **)malloc(sizeof(char *) * cpt);
+	res = (char **)malloc(sizeof(char *) * 4 * cpt);
 	if (res == NULL)
 		return (NULL);
 	while (res[i])
 	{
-		res[i] = (char *)malloc(sizeof(char) * 5);
+		res[i] = (char *)malloc(sizeof(char) * 4 * (cpt + 1));
 		i++;
 	}
 	ft_init_tab(res);
