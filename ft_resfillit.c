@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:31:14 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 14:31:20 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/04 19:23:30 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,18 @@ int		ft_fill_square(char **res, t_tetri **tab, int size, int n)
 	int	j;
 
 	i = 0;
-	if (form[n] == NULL)
+	if (tab[n] == NULL)
 		return (1);
-	while ((i + form[n]->height) <= size)
+	while ((i + tab[n]->height) <= size)
 	{
 		j = 0;
-		while ((j + form[n]->large) <= size)
+		while ((j + tab[n]->large) <= size)
 		{
-			if (ft_check_place(i, j, res, form[n]))
+			if (ft_check_place(i, j, res, tab[n]))
 			{
-				ft_place_tetri(i, j, res, form[n]);
+				ft_place_tetri(i, j, res, tab[n]);
 				if (!(ft_fill_square(res, tab, size, n + 1)))
-					ft_delete_tetri(i, j, tab, form[n]);
+					ft_delete_tetri(i, j, tab, tab[n]);
 				else
 					return (1);
 			}

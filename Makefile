@@ -6,16 +6,22 @@
 #    By: vgosset <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 16:41:02 by vgosset           #+#    #+#              #
-#    Updated: 2015/12/16 12:39:28 by vgosset          ###   ########.fr        #
+#    Updated: 2016/01/04 20:16:12 by jle-quer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_placebuf.c \
-	  ft_checkbuf.c \
-	  ft_read.c \
-	  ft_checknext.c \
-	  ft_countlarge.c \
-	  ft_countheight 
+SRC =	main.c \
+		ft_checkbuf.c \
+		ft_read.c \
+		ft_checknext.c \
+		ft_countsize.c \
+		ft_createtab.c \
+		ft_display.c \
+		ft_error.c \
+		ft_lasttab.c \
+		ft_readtoplace.c \
+		ft_replaceform.c \
+		ft_resfillit.c
 
 OBJ = $(SRC:.c=.o)
 

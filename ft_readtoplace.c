@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 13:35:44 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/18 14:53:27 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/04 19:56:24 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ t_tetri	**ft_readtoplace(int fd, size_t cpt)
 	tab = ft_createtab(tab, cpt);
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
-		buf[19] = '\0';
+		buf[20] = '\0';
 		buf = ft_replacechar(buf, '\n', '\0');
-		*tab = ft_placebuf(*tab, buf, i);
+		tab[i] = ft_placebuf(buf, i);
 		i++;
-		tab++;
 		read(fd, buf2, 1);
 	}
 	return (tab);

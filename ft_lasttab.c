@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 13:34:57 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 13:13:38 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:17:47 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**ft_res_tab(t_tetri **tab, size_t cpt)
 	i = 0;
 	size = ft_size_tab(cpt);
 	res = ft_init_last_tab(size);
-	while (!(ft_resfillit(res, tab, size, 0)))
+	while (!(ft_fill_square(res, tab, size, 0)))
 	{
 		size++;
 		i = 0;

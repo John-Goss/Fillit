@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 17:23:01 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/15 11:36:15 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/01/04 19:26:51 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ int		ft_checknext(char *buf)
 				cpt++;
 			if (i > 4 && buf[i - 5] == '#')
 				cpt++;
-			if (i < 19 buf[i + 1] == '#')
+			if (i < 19 && buf[i + 1] == '#')
 				cpt++;
-			if (i < 15 buf[i + 5] == '#')
+			if (i < 15 && buf[i + 5] == '#')
 				cpt++;
 		}
+		i++;
 	}
-	if (cpt != 6 || cpt != 8)
+	if (cpt != 6 && cpt != 8)
 		return (0);
-	return (1);
+	return (cpt);
 }

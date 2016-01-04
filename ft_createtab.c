@@ -3,32 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_createtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 12:21:46 by vgosset           #+#    #+#             */
-/*   Updated: 2015/12/18 14:53:24 by jle-quer         ###   ########.fr       */
+/*   Created: 2016/01/04 19:59:20 by jle-quer          #+#    #+#             */
+/*   Updated: 2016/01/04 20:00:05 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tetri	**ft_placebuf(t_tetri *tab, char *buf, int i)
+t_tetri	*ft_placebuf(char *buf, int i)
 {
 	int		j;
+	int		line;
+	t_tetri	*newpiece;
 
 	j = 0;
-	if (tab == NULL)
+	line = 0;
+	if (!(newpiece = (t_tetri*)malloc(sizeof(*newpiece))))
 		return (NULL);
 	while (j <= 20)
 	{
-		*tab->form[i] = ft_strncpy((char *)tab->form[i], buf + j, 5);
+		ft_strncpy(newpiece->form[line], buf + j, 5);
+		ft_replacechar(newpiece->form[line], '#', 'A' + i);
 		j = j + 5;
+		line++;
 	}
-	*tab->letter = 'A' + i;
-	return (tab);
+	newpiece->letter = 'A' + i;
+	newpiece->height = ft_countheight(newpiece);
+	newpiece->large = ft_countlarge(newpiece);
+	ft_replacetop(newpiece);
+	ft_replaceleft(newpiece);
+	return (newpiece);
 }
 
 t_tetri	**ft_createtab(t_tetri **tab, size_t cpt)
 {
-	return (tab = ((t_tetri **)malloc(sizeof(t_tetri) * cpt + 1)));
+	if (!(tab = (t_tetri **)malloc(sizeof(t_tetri) * (cpt + 1))))
+		return (NULL);
+	tab[cpt] = NULL;
+	return (tab);
 }
