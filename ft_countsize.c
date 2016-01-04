@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-size_t	ft_countheight(t_tetri **tab)
+size_t	ft_countheight(char form[4][5], int i)
 {
 	int		l;
 	int		c;
@@ -21,11 +21,11 @@ size_t	ft_countheight(t_tetri **tab)
 	l = 0;
 	c = 0;
 	height = 0;
-	while (tab[l][c])
+	while (form[l][c])
 	{
 		while (c < 4)
 		{
-			if (tab[l][c] == tab->letter)
+			if (form[l][c] == 'A' + i)
 			{
 				height++;
 				l++;
@@ -39,7 +39,7 @@ size_t	ft_countheight(t_tetri **tab)
 	return (height);
 }
 
-size_t	ft_countlarge(t_tetri **tab)
+size_t	ft_countlarge(char form[4][5], int i)
 {
 	int		l;
 	int		c;
@@ -48,11 +48,11 @@ size_t	ft_countlarge(t_tetri **tab)
 	l = 0;
 	c = 0;
 	large = 0;
-	while (tab[l][c])
+	while (form[l][c])
 	{
 		while (l < 4)
 		{
-			if (tab[l][c] == tab->letter)
+			if (form[l][c] == 'A' + i)
 			{
 				large++;
 				c++;

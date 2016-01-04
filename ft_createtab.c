@@ -30,8 +30,8 @@ t_tetri	*ft_placebuf(char *buf, int i)
 		line++;
 	}
 	newpiece->letter = 'A' + i;
-	newpiece->height = ft_countheight(newpiece);
-	newpiece->large = ft_countlarge(newpiece);
+	newpiece->height = ft_countheight(newpiece->form, i);
+	newpiece->large = ft_countlarge(newpiece->form, i);
 	ft_replacetop(newpiece);
 	ft_replaceleft(newpiece);
 	return (newpiece);

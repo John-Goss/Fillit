@@ -25,8 +25,8 @@ typedef struct	s_tetri
 	size_t		large;
 }				t_tetri;
 
-size_t			ft_countheight(t_tetri *tab);
-size_t			ft_countlarge(t_tetri *tab);
+size_t			ft_countheight(char form[4][5], int i);
+size_t			ft_countlarge(char form[4][5], int i);
 t_tetri			*ft_placebuf(char *buf, int i);
 int				ft_checkbuf(char *buf);
 int				ft_read(int fd);
