@@ -6,16 +6,16 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 18:27:19 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 20:09:59 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:28:58 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
+# include "lib/libft.h"
 # include <fcntl.h>
 # include <sys/uio.h>
-# include "libft.h"
 
 typedef struct	s_tetri
 {
@@ -25,8 +25,8 @@ typedef struct	s_tetri
 	size_t		large;
 }				t_tetri;
 
-void			ft_countheight(t_tetri *tab);
-void			ft_countlarge(t_tetri *tab);
+size_t			ft_countheight(t_tetri *tab);
+size_t			ft_countlarge(t_tetri *tab);
 t_tetri			*ft_placebuf(char *buf, int i);
 int				ft_checkbuf(char *buf);
 int				ft_read(int fd);
@@ -45,6 +45,6 @@ void			ft_moveleft(t_tetri *tab);
 void			ft_delete_tetri(int i, int j, char **res, t_tetri *tab);
 void			ft_place_tetri(int i, int j, char **res, t_tetri *tab);
 int				ft_check_place(int i, int j, char **res, t_tetri *tab);
-int				ft_fill_square(char **res, t_tetri **tab, int size, int n)
+int				ft_fill_square(char **res, t_tetri **tab, int size, int n);
 
 #endif

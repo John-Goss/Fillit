@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 18:24:25 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 18:24:28 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:23:40 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@ int		main(int argc, char **argv)
 {
 	int		fd;
 	size_t	cpt;
-	char	*buf;
 	t_tetri	**tab;
 	char	**res;
 
 	if (argc != 2)
-		return (ft_error);
-	fd = open(argv[1], O_RONLY);
+		return (ft_error());
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		return (ft_error);
+		return (ft_error());
 	cpt = ft_read(fd);
 	if (cpt == 0)
-		return (ft_error);
-	if (close(fd) = -1)
-		return (ft_error);
-	fd = open(argv[1], O_RONLY);
+		return (ft_error());
+	if (close(fd) == -1)
+		return (ft_error());
+	fd = open(argv[1], O_RDONLY);
 	tab = ft_readtoplace(fd, cpt);
 	res = ft_res_tab(tab, cpt);
 	ft_display(res);

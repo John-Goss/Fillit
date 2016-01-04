@@ -6,13 +6,13 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 18:32:20 by jle-quer          #+#    #+#             */
-/*   Updated: 2015/12/16 18:47:09 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:29:38 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_countheight(t_tetri *tab)
+size_t	ft_countheight(t_tetri **tab)
 {
 	int		l;
 	int		c;
@@ -36,10 +36,10 @@ void	ft_countheight(t_tetri *tab)
 		l++;
 		c = 0;
 	}
-	tab->height = height;
+	return (height);
 }
 
-void	ft_countlarge(t_tetri *tab)
+size_t	ft_countlarge(t_tetri **tab)
 {
 	int		l;
 	int		c;
@@ -63,5 +63,5 @@ void	ft_countlarge(t_tetri *tab)
 		c++;
 		l = 0;
 	}
-	tab->large = large;
+	return (large);
 }

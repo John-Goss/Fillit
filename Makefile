@@ -6,7 +6,7 @@
 #    By: vgosset <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 16:41:02 by vgosset           #+#    #+#              #
-#    Updated: 2016/01/04 20:16:12 by jle-quer         ###   ########.fr        #
+#    Updated: 2016/01/04 20:18:29 by jle-quer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(LIB) :
 	(cd $(LIB_DIR) $(MAKE))
 
 $(NAME) : $(OBJ) $(LIB)
-	$(CC) $(FLAG) -o $(NAME) $(OBJ) -I$(LIB_DIR)
+	$(CC) $(FLAG) -o $(NAME) $(OBJ) -I $(LIB_DIR)
 %.o:%.c
 	$(CC) $(FLAG) -c $< -o $@
 
