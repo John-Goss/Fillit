@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 13:32:34 by vgosset           #+#    #+#             */
-/*   Updated: 2016/01/04 20:06:12 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 11:24:58 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_replacetop(t_tetri *tab)
 			ft_strncpy(tab->form[h], tab->form[h + 1], 4);
 			h++;
 		}
-		ft_strcpy(form[h], "....");
+		ft_strcpy(tab->form[h], "....");
 		h = 0;
 	}
 }

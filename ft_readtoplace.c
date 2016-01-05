@@ -6,13 +6,13 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 13:35:44 by vgosset           #+#    #+#             */
-/*   Updated: 2016/01/04 19:56:24 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 11:17:49 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_replacechar(char *buf, char c, char d)
+void	ft_replacechar(char *buf, char c, char d)
 {
 	int i;
 
@@ -23,7 +23,6 @@ char	*ft_replacechar(char *buf, char c, char d)
 			buf[i] = d;
 		i++;
 	}
-	return (buf);
 }
 
 t_tetri	**ft_readtoplace(int fd, size_t cpt)
@@ -35,11 +34,11 @@ t_tetri	**ft_readtoplace(int fd, size_t cpt)
 	t_tetri	**tab;
 
 	i = 0;
-	tab = ft_createtab(tab, cpt);
+	tab = ft_createtab(cpt);
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
 		buf[20] = '\0';
-		buf = ft_replacechar(buf, '\n', '\0');
+		ft_replacechar(buf, '\n', '\0');
 		tab[i] = ft_placebuf(buf, i);
 		i++;
 		read(fd, buf2, 1);

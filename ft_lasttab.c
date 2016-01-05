@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 13:34:57 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 18:17:47 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 10:51:10 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ size_t	ft_size_tab(size_t cpt)
 char	**ft_init_last_tab(size_t size)
 {
 	char	**res;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	if (!(res = (char **)malloc(sizeof(char *) * (size + 1))));
+	if (!(res = (char **)malloc(sizeof(char *) * (size + 1))))
 		return (NULL);
 	while (i < size)
 	{
-		if (!(res[i] = (char *)malloc(sizeof(char) * size + 1)));
+		if (!(res[i] = (char *)malloc(sizeof(char) * size + 1)))
 			return (NULL);
 		while (j < size)
 			res[i][j++] = '.';

@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 18:27:19 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 20:28:58 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 11:28:35 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_tetri			*ft_placebuf(char *buf, int i);
 int				ft_checkbuf(char *buf);
 int				ft_read(int fd);
 int				ft_checknext(char *buf);
-t_tetri			**ft_createtab(t_tetri **tab, size_t cpt);
-char			*ft_replacechar(char *buf, char c, char d);
+t_tetri			**ft_createtab(size_t cpt);
+void			ft_replacechar(char *buf, char c, char d);
 t_tetri			**ft_readtoplace(int fd, size_t cpt);
 void			ft_display(char **res);
 int				ft_error(void);

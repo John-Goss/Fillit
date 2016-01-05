@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 14:31:14 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 19:23:30 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 11:25:23 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_delete_tetri(int i, int j, char **res, t_tetri *tab)
 {
-	int	k;
-	int	l;
+	size_t	k;
+	size_t	l;
 
 	k = 0;
 	while (k < tab->height)
@@ -33,8 +33,8 @@ void	ft_delete_tetri(int i, int j, char **res, t_tetri *tab)
 
 void	ft_place_tetri(int i, int j, char **res, t_tetri *tab)
 {
-	int	k;
-	int	l;
+	size_t	k;
+	size_t	l;
 
 	k = 0;
 	while (k < tab->height)
@@ -52,8 +52,8 @@ void	ft_place_tetri(int i, int j, char **res, t_tetri *tab)
 
 int		ft_check_place(int i, int j, char **res, t_tetri *tab)
 {
-	int	k;
-	int	l;
+	size_t	k;
+	size_t	l;
 
 	k = 0;
 	while (k < tab->height)
@@ -72,22 +72,22 @@ int		ft_check_place(int i, int j, char **res, t_tetri *tab)
 
 int		ft_fill_square(char **res, t_tetri **tab, int size, int n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (tab[n] == NULL)
 		return (1);
-	while ((i + tab[n]->height) <= size)
+	while ((i + tab[n]->height) <= (size_t)size)
 	{
 		j = 0;
-		while ((j + tab[n]->large) <= size)
+		while ((j + tab[n]->large) <= (size_t)size)
 		{
 			if (ft_check_place(i, j, res, tab[n]))
 			{
 				ft_place_tetri(i, j, res, tab[n]);
 				if (!(ft_fill_square(res, tab, size, n + 1)))
-					ft_delete_tetri(i, j, tab, tab[n]);
+					ft_delete_tetri(i, j, res, tab[n]);
 				else
 					return (1);
 			}

@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 19:59:20 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 20:29:47 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 11:17:44 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ t_tetri	*ft_placebuf(char *buf, int i)
 	return (newpiece);
 }
 
-t_tetri	**ft_createtab(t_tetri **tab, size_t cpt)
+t_tetri	**ft_createtab(size_t cpt)
 {
+	t_tetri	**tab;
+
 	if (!(tab = (t_tetri **)malloc(sizeof(t_tetri) * (cpt + 1))))
 		return (NULL);
 	tab[cpt] = NULL;
