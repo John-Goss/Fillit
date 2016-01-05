@@ -6,7 +6,7 @@
 #    By: vgosset <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 16:41:02 by vgosset           #+#    #+#              #
-#    Updated: 2016/01/05 11:27:16 by jle-quer         ###   ########.fr        #
+#    Updated: 2016/01/05 11:58:14 by jle-quer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC =	main.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIB_DIR = lib
+LIB_DIR = Libft/
 
 NAME = fillit
 
@@ -33,12 +33,12 @@ FLAG = -Wall -Wextra -Werror
 
 CC = gcc
 
-all : $(NAME)
+all : $(LIB) $(NAME)
 
 $(LIB) :
-	(cd $(LIB_DIR) $(MAKE))
+	make -C $(LIB_DIR)
 
-$(NAME) : $(OBJ) $(LIB)
+$(NAME) : $(OBJ)
 	$(CC) $(FLAG) -o $(NAME) $(OBJ) -I $(LIB_DIR)
 %.o:%.c
 	$(CC) $(FLAG) -c $< -o $@
