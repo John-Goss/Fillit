@@ -6,7 +6,7 @@
 #    By: vgosset <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/11 16:41:02 by vgosset           #+#    #+#              #
-#    Updated: 2016/01/05 11:58:14 by jle-quer         ###   ########.fr        #
+#    Updated: 2016/01/05 13:16:36 by jle-quer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,16 +33,16 @@ FLAG = -Wall -Wextra -Werror
 
 CC = gcc
 
-all : $(LIB) $(NAME)
+all : $(NAME)
 
-$(LIB) :
-	make -C $(LIB_DIR)
+LIB = libft.a
 
-$(NAME) : $(OBJ)
-	$(CC) $(FLAG) -o $(NAME) $(OBJ) -I $(LIB_DIR)
+$(NAME) : $(OBJ) $(LIB)
+	$(CC) $(FLAG) $(OBJ) -L $(LIB_DIR) -lft -I$(LIB_DIR) -o $(NAME)
 %.o:%.c
 	$(CC) $(FLAG) -c $< -o $@
-
+$(LIB) :
+	make -C $(LIB_DIR)
 clean : 
 	rm -f $(OBJ)
 

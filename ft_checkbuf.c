@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 17:14:36 by vgosset           #+#    #+#             */
-/*   Updated: 2016/01/04 19:24:30 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 12:49:13 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@ int		ft_checkbuf(char *buf)
 
 	cpt = 0;
 	i = 0;
-	while (buf[i])
+	while (i < 20)
 	{
-		if ((i + 1) % 5 != 0)
+		if ((i + 1) % 5 == 0)
 		{
 			if (buf[i] != '\n')
 				return (0);
 		}
-		if (buf[i] != '.' && buf[i] != '#')
+		else if (buf[i] != '.' && buf[i] != '#')
+		{
+			printf("%d %c", i, buf[i]);
 			return (0);
+		}
 		if (buf[i] == '#')
 			cpt++;
 		i++;

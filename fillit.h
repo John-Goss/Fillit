@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 18:27:19 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/05 11:55:16 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 13:16:05 by jle-quer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "Libft/libft.h"
 # include <fcntl.h>
 # include <sys/uio.h>
+# include <stdio.h>
 
 typedef struct	s_tetri
 {
