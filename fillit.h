@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 18:27:19 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/05 13:16:05 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:55:49 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct	s_tetri
 	size_t		large;
 }				t_tetri;
 
-size_t			ft_countheight(char form[4][5], int i);
-size_t			ft_countlarge(char form[4][5], int i);
+size_t			ft_countheight(char form[4][5], char a);
+size_t			ft_countlarge(char form[4][5], char a);
 t_tetri			*ft_placebuf(char *buf, int i);
 int				ft_checkbuf(char *buf);
 int				ft_read(int fd);

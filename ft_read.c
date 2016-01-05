@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 16:31:41 by vgosset           #+#    #+#             */
-/*   Updated: 2016/01/05 13:00:39 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:38:04 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int		ft_read(int fd)
 	cpt = 0;
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
-		buf[20] = '\0';
 		if (!ft_checkbuf(buf))
 			return (0);
-		if ((ret2 = read(fd, buf2, 1)) == 1 && buf[0] != '\n')
+		if ((ret2 = read(fd, buf2, 1)) == 1 && buf2[0] != '\n')
 			return (0);
 		cpt++;
 	}

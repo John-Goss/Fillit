@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 18:24:25 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/05 12:49:00 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 16:01:44 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		main(int argc, char **argv)
 {
 	int		fd;
-	size_t	cpt;
+	int		cpt;
 	t_tetri	**tab;
 	char	**res;
 
@@ -42,6 +42,7 @@ int		main(int argc, char **argv)
 		return (ft_error());
 	}
 	fd = open(argv[1], O_RDONLY);
+	printf("%d\n", 1);
 	tab = ft_readtoplace(fd, cpt);
 	res = ft_res_tab(tab, cpt);
 	ft_display(res);

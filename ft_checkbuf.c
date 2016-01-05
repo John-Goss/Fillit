@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 17:14:36 by vgosset           #+#    #+#             */
-/*   Updated: 2016/01/05 12:49:13 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:08:30 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int		ft_checkbuf(char *buf)
 				return (0);
 		}
 		else if (buf[i] != '.' && buf[i] != '#')
-		{
-			printf("%d %c", i, buf[i]);
 			return (0);
-		}
 		if (buf[i] == '#')
 			cpt++;
 		i++;

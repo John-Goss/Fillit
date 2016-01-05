@@ -6,13 +6,13 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 18:32:20 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/04 20:29:38 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 16:01:23 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t	ft_countheight(char form[4][5], int i)
+size_t	ft_countheight(char form[4][5], char a)
 {
 	int		l;
 	int		c;
@@ -21,11 +21,11 @@ size_t	ft_countheight(char form[4][5], int i)
 	l = 0;
 	c = 0;
 	height = 0;
-	while (form[l][c])
+	while (l < 4)
 	{
-		while (c < 4)
+		while (c < 4 && l < 4)
 		{
-			if (form[l][c] == 'A' + i)
+			if (form[l][c] == a)
 			{
 				height++;
 				l++;
@@ -39,7 +39,7 @@ size_t	ft_countheight(char form[4][5], int i)
 	return (height);
 }
 
-size_t	ft_countlarge(char form[4][5], int i)
+size_t	ft_countlarge(char form[4][5], char a)
 {
 	int		l;
 	int		c;
@@ -48,11 +48,11 @@ size_t	ft_countlarge(char form[4][5], int i)
 	l = 0;
 	c = 0;
 	large = 0;
-	while (form[l][c])
+	while (c < 4)
 	{
-		while (l < 4)
+		while (l < 4 && c < 4)
 		{
-			if (form[l][c] == 'A' + i)
+			if (form[l][c] == a)
 			{
 				large++;
 				c++;

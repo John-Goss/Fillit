@@ -6,7 +6,7 @@
 /*   By: jle-quer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 19:59:20 by jle-quer          #+#    #+#             */
-/*   Updated: 2016/01/05 13:26:34 by jle-quer         ###   ########.fr       */
+/*   Updated: 2016/01/05 15:06:17 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_tetri	*ft_placebuf(char *buf, int i)
 		line++;
 	}
 	newpiece->letter = 'A' + i;
-	newpiece->height = ft_countheight(newpiece->form, i);
-	newpiece->large = ft_countlarge(newpiece->form, i);
+	newpiece->height = ft_countheight(newpiece->form, newpiece->letter);
+	newpiece->large = ft_countlarge(newpiece->form, newpiece->letter);
 	ft_replacetop(newpiece);
 	ft_replaceleft(newpiece);
 	return (newpiece);
